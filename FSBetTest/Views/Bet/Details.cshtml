@@ -1,0 +1,50 @@
+﻿@model FSBetTest.Models.Bet
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Bet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Person.PersonName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Person.PersonName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GameID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GameID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Points)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Points)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prediction)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prediction)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BetID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,42 @@
+﻿@model FSBetTest.Models.Game
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Game</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TeamAID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeamAID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeamBID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeamBID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Outcome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Outcome)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.GameID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<FSBetTest.Models.Bet>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Person.PersonName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GameID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Points)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prediction)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Person.PersonName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GameID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Points)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prediction)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BetID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BetID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BetID })
+        </td>
+    </tr>
+}
+
+</table>
