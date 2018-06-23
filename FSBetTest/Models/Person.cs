@@ -13,6 +13,8 @@ namespace FSBetTest.Models
         [Required]
         public string PersonName { get; set; }
 
+        public int Score { get; set; }
+
         public virtual ICollection<Bet> Bets { get; set; }
     }
 }

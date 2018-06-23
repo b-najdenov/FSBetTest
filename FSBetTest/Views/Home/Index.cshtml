@@ -1,19 +1,41 @@
-﻿@{
+﻿@model IEnumerable<FSBetTest.Models.Person>
+
+@{
     ViewBag.Title = "Home Page";
 }
 
 <div class="jumbotron">
     <h1>FS World Cup 2018</h1>
-   
+
 </div>
 
 <div class="row">
     <div class="col-md-12">
         <h2>Leaderboard</h2>
 
+        <table class="table">
+            <tr>
+                <th>
+                    Scores
+                </th>
+                <th></th>
+            </tr>
 
+            @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PersonName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Score)
+                </td>
+            </tr>
+        }
+
+        </table>
 
         <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
     </div>
-    
+
 </div>

@@ -19,5 +19,6 @@ namespace FSBetTest.Models
         public string Prediction { get; set; }
 
         public virtual Person Person { get; set; }
+        public virtual Game Game { get; set; }
     }
 }
