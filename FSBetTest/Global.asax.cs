@@ -38,7 +38,7 @@ namespace FSBetTest
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
             RootObject rootObject = null;
-            HttpResponseMessage response = client.GetAsync($"?idseason=254645&idcompetition=17&language=en-GB&count=1").Result;
+            HttpResponseMessage response = client.GetAsync($"?idseason=254645&idcompetition=17&language=en-GB&count=50").Result;
 
             if (response.IsSuccessStatusCode)
             {

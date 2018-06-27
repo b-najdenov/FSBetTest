@@ -76,7 +76,7 @@ namespace FSBetTest.Controllers
 
     public class Home
     {
-        public int Score { get; set; }
+        public int? Score { get; set; }
         public object Side { get; set; }
         public string IdTeam { get; set; }
         public string PictureUrl { get; set; }
@@ -97,7 +97,7 @@ namespace FSBetTest.Controllers
 
     public class Away
     {
-        public int Score { get; set; }
+        public int? Score { get; set; }
         public object Side { get; set; }
         public string IdTeam { get; set; }
         public string PictureUrl { get; set; }
@@ -214,12 +214,12 @@ namespace FSBetTest.Controllers
         public DateTime LocalDate { get; set; }
         public Home Home { get; set; }
         public Away Away { get; set; }
-        public int HomeTeamScore { get; set; }
-        public int AwayTeamScore { get; set; }
-        public int AggregateHomeTeamScore { get; set; }
-        public int AggregateAwayTeamScore { get; set; }
-        public int HomeTeamPenaltyScore { get; set; }
-        public int AwayTeamPenaltyScore { get; set; }
+        public int? HomeTeamScore { get; set; }
+        public int? AwayTeamScore { get; set; }
+        public int? AggregateHomeTeamScore { get; set; }
+        public int? AggregateAwayTeamScore { get; set; }
+        public int? HomeTeamPenaltyScore { get; set; }
+        public int? AwayTeamPenaltyScore { get; set; }
         public object LastPeriodUpdate { get; set; }
         public object Leg { get; set; }
         public object IsHomeMatch { get; set; }
