@@ -18,8 +18,43 @@ namespace FSBetTest.Controllers
             updateScores();
             List<Person> resultPeople = db.People.ToList();
 
+            updateFromAPI();
+
             //return View(db.People.ToList());
             return View(resultPeople.OrderByDescending(x => x.Score));
+        }
+
+        private void updateFromAPI()
+        {
+            APIAccess aPIAccess = new APIAccess();
+            RootObject result = aPIAccess.tryToFetch();
+
+            result.Results
+                .ForEach(resultItem =>
+            {
+
+                //check if home team exists
+                if (db.Teams.Any(t => t.TeamID.Equals(resultItem.Home.IdTeam)) == false)
+                {
+                    Team team = new Team { TeamID = resultItem.Home.IdTeam, TeamName = resultItem.Home.TeamName[0].Description };
+                    db.Teams.Add(team);
+                    db.SaveChanges();
+                }
+
+                //check if away team exists
+                if(db.Teams.Any(t => t.TeamID.Equals(resultItem.Away.IdTeam)) == false)
+                {
+                    Team team = new Team { TeamID = resultItem.Away.IdTeam, TeamName = resultItem.Away.TeamName[0].Description };
+                    db.Teams.Add(team);
+                    db.SaveChanges();
+                }
+
+
+                Game game = new Game();
+                //game.
+            }
+            );
+
         }
 
         private void updateScores()

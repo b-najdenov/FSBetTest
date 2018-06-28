@@ -10,8 +10,7 @@ namespace FSBetTest.Controllers
 {
     public class APIAccess
     {
-
-        public static async Task<RootObject> fetchApi()
+        public RootObject tryToFetch()
         {
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("https://api.fifa.com/api/v1/calendar/matches");
@@ -19,13 +18,12 @@ namespace FSBetTest.Controllers
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
             RootObject rootObject = null;
-            HttpResponseMessage response = client.GetAsync($"?idseason=254645&idcompetition=17&language=en-GB&count=3").Result;
+            HttpResponseMessage response = client.GetAsync($"?idseason=254645&idcompetition=17&language=en-GB&count=50").Result;
 
             if (response.IsSuccessStatusCode)
             {
                 rootObject = response.Content.ReadAsAsync<RootObject>().Result;
             }
-
             else
             {
                 Console.WriteLine("{0} ({1})", (int)response.StatusCode, response.ReasonPhrase);
@@ -33,7 +31,9 @@ namespace FSBetTest.Controllers
 
             return rootObject;
         }
+
     }
+
 
     public class TypeLocalized
     {

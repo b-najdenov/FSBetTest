@@ -12,8 +12,8 @@ namespace FSBetTest.Models
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int GameID { get; set; }
 
-        public int TeamAID { get; set; }
-        public int TeamBID { get; set; }
+        public string TeamAID { get; set; }
+        public string TeamBID { get; set; }
 
         [Required]
         public string Outcome { get; set; }

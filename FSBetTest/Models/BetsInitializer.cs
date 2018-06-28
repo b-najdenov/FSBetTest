@@ -28,22 +28,22 @@ namespace FSBetTest.Models
 
             var games = new List<Game>
             {
-                new Game {GameID = 101, TeamAID = 1, TeamBID = 2, Outcome = "1"},
-                new Game {GameID = 102, TeamAID = 1, TeamBID = 3, Outcome = "2"},
-                new Game {GameID = 103, TeamAID = 1, TeamBID = 4, Outcome = "x"},
-                new Game {GameID = 104, TeamAID = 2, TeamBID = 3, Outcome = "2"},
-                new Game {GameID = 105, TeamAID = 2, TeamBID = 4, Outcome = "1"},
-                new Game {GameID = 106, TeamAID = 3, TeamBID = 4, Outcome = "x"}
+                new Game {GameID = 101, TeamAID = "556", TeamBID = "557", Outcome = "1"},
+                new Game {GameID = 102, TeamAID = "556", TeamBID = "558", Outcome = "2"},
+                new Game {GameID = 103, TeamAID = "556", TeamBID = "559", Outcome = "x"},
+                new Game {GameID = 104, TeamAID = "557", TeamBID = "558", Outcome = "2"},
+                new Game {GameID = 105, TeamAID = "557", TeamBID = "559", Outcome = "1"},
+                new Game {GameID = 106, TeamAID = "558", TeamBID = "559", Outcome = "x"}
             };
             games.ForEach(s => context.Games.Add(s));
             context.SaveChanges();
 
             var teams = new List<Team>
             {
-                new Team { TeamName = "Spain"},
-                new Team { TeamName = "Denmark"},
-                new Team { TeamName = "Macedonia"},
-                new Team { TeamName = "Portugal"}
+                new Team { TeamID = "556", TeamName = "Spain"},
+                new Team { TeamID = "557", TeamName = "Denmark"},
+                new Team { TeamID = "558", TeamName = "Macedonia"},
+                new Team { TeamID = "559", TeamName = "Portugal"}
             };
             teams.ForEach(s => context.Teams.Add(s));
             context.SaveChanges();
