@@ -75,33 +75,6 @@ namespace FSBetTest.Models
             context.SaveChanges();
 
 
-        }
-
-
-        //public static async void TryToRunAsync()
-        //{
-        //    Setup().Wait();
-
-        //    RootObject result = new RootObject();
-        //    result = await fetchApi();
-        //    string b;
-        //    b = "bojan";
-        //}
-
-        //private void fetchAPI()
-        //{
-
-        //    client.BaseAddress = new Uri("https://api.fifa.com/api/v1/calendar/matches?idseason=254645&idcompetition=17&language=en-GB&count=50");
-        //    client.DefaultRequestHeaders.Accept.Clear();
-        //    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-        //}
-
-        
-
-        
-
+        }      
     }
-
-    
 }

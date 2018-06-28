@@ -21,13 +21,13 @@ namespace FSBetTest.Controllers
         }
 
         // GET: Team/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(string id)
         {
-            if (id == null)
+            if (id.Equals(null))
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Team team = db.Teams.Find(id);
+            Team team = db.Teams.Find(id.ToString());
             if (team == null)
             {
                 return HttpNotFound();
@@ -59,7 +59,7 @@ namespace FSBetTest.Controllers
         }
 
         // GET: Team/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(string id)
         {
             if (id == null)
             {
@@ -90,7 +90,7 @@ namespace FSBetTest.Controllers
         }
 
         // GET: Team/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(string id)
         {
             if (id == null)
             {
@@ -107,7 +107,7 @@ namespace FSBetTest.Controllers
         // POST: Team/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(string id)
         {
             Team team = db.Teams.Find(id);
             db.Teams.Remove(team);
