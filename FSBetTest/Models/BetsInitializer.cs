@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace FSBetTest.Models
 {
-    public class BetsInitializer : DropCreateDatabaseAlways<BetsDB>
+    public class BetsInitializer : DropCreateDatabaseIfModelChanges<BetsDB>
     {
 
 
@@ -26,6 +26,16 @@ namespace FSBetTest.Models
             people.ForEach(s => context.People.Add(s));
             context.SaveChanges();
 
+            var teams = new List<Team>
+            {
+                new Team { TeamID = "556", TeamName = "Spain"},
+                new Team { TeamID = "557", TeamName = "Denmark"},
+                new Team { TeamID = "558", TeamName = "Macedonia"},
+                new Team { TeamID = "559", TeamName = "Portugal"}
+            };
+            teams.ForEach(s => context.Teams.Add(s));
+            context.SaveChanges();
+
             var games = new List<Game>
             {
                 new Game {GameID = 101, TeamAID = "556", TeamBID = "557", Outcome = "1"},
@@ -38,15 +48,7 @@ namespace FSBetTest.Models
             games.ForEach(s => context.Games.Add(s));
             context.SaveChanges();
 
-            var teams = new List<Team>
-            {
-                new Team { TeamID = "556", TeamName = "Spain"},
-                new Team { TeamID = "557", TeamName = "Denmark"},
-                new Team { TeamID = "558", TeamName = "Macedonia"},
-                new Team { TeamID = "559", TeamName = "Portugal"}
-            };
-            teams.ForEach(s => context.Teams.Add(s));
-            context.SaveChanges();
+
 
             var bets = new List<Bet>
             {

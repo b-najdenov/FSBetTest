@@ -12,14 +12,18 @@ namespace FSBetTest.Models
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int GameID { get; set; }
 
+        [ForeignKey("TeamA")]
         public string TeamAID { get; set; }
+        [ForeignKey("TeamB")]
         public string TeamBID { get; set; }
 
         [Required]
         public string Outcome { get; set; }
 
+        
         public virtual Team TeamA { get; set; }
         public virtual Team TeamB { get; set; }
+
         public virtual ICollection<Bet> Bets { get; set; }
     }
 

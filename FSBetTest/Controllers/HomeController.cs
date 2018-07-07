@@ -49,17 +49,23 @@ namespace FSBetTest.Controllers
                     db.SaveChanges();
                 }
 
-                if (resultItem.HomeTeamScore != null)
-                { 
-                    string outcome = "x";
-                    if (resultItem.HomeTeamScore > resultItem.AwayTeamScore)
-                        outcome = "1";
-                    else if (resultItem.HomeTeamScore < resultItem.AwayTeamScore)
-                        outcome = "2";
+            int gameID = Int32.Parse(resultItem.IdMatch);
+                //check if it is not an existing game
+                if (db.Games.Any(g => g.GameID == gameID) == false)
 
-                    Game game = new Game { GameID = Int32.Parse(resultItem.IdMatch), TeamAID = resultItem.Home.IdTeam, TeamBID = resultItem.Away.IdTeam, Outcome = outcome };
-                    db.Games.Add(game);
-                    db.SaveChanges();
+                 {
+                    if (resultItem.HomeTeamScore != null)
+                    {
+                        string outcome = "x";
+                        if (resultItem.HomeTeamScore > resultItem.AwayTeamScore)
+                            outcome = "1";
+                        else if (resultItem.HomeTeamScore < resultItem.AwayTeamScore)
+                            outcome = "2";
+
+                        Game game = new Game { GameID = Int32.Parse(resultItem.IdMatch), TeamAID = resultItem.Home.IdTeam, TeamBID = resultItem.Away.IdTeam, Outcome = outcome };
+                        db.Games.Add(game);
+                        db.SaveChanges();
+                    }
                 }
                 //game.
             }

@@ -24,7 +24,6 @@ namespace FSBetTest
 
             Database.SetInitializer<BetsDB>(new BetsInitializer());
 
-            string b = "bojan-";
         }
     }
 }

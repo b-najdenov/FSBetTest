@@ -14,6 +14,10 @@ namespace FSBetTest.Models
         public DbSet<Team> Teams { get; set; }
         public DbSet<Bet> Bets { get; set; }
 
+        public BetsDB() : base("BetsDB")
+        {
+        }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();

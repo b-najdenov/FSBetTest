@@ -8,6 +8,7 @@ namespace FSBetTest.Models
 {
     public class Person
     {
+        [Key]
         public int PersonID { get; set; }
 
         [Required]
